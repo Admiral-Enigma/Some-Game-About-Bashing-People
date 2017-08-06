@@ -1,0 +1,22 @@
+{
+  "name": "sgabp",
+  "version": "1.0.0",
+  "description": "A WIP prototype of a game (Duh)",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lord-Squirrel/Some-Game-About-Bashing-People.git"
+  },
+  "author": "Lord Squirrel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Lord-Squirrel/Some-Game-About-Bashing-People/issues"
+  },
+  "homepage": "https://github.com/Lord-Squirrel/Some-Game-About-Bashing-People#readme",
+  "dependencies": {
+    "express": "^4.15.3"
+  }
+}
