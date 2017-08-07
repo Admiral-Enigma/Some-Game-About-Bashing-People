@@ -40,6 +40,6 @@ function update() {
 function draw() {
   colorRect(0,0, canvas.width,canvas.height, 'black')
   mapHandler.draw()
-  colorText(Input.mouseX,Input.mouseY, Input.mouseX+":"+Input.mouseY, "yellow")
+  colorText(Input.mouseX,Input.mouseY, Math.floor(Input.mouseX)+":"+Math.floor(Input.mouseY), "yellow")
   player.draw()
 }
