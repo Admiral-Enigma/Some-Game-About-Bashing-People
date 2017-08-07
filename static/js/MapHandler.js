@@ -1,23 +1,24 @@
 
 var mapGrid = [
-  1,1,1,1,1,1,1,1,
-  1,0,0,0,0,0,0,1,
-  1,0,0,0,0,0,0,1,
-  1,0,0,0,0,0,0,1,
-  1,0,0,0,0,0,0,1,
-  1,0,0,0,0,0,0,1,
-  1,0,0,0,0,0,0,1,
-  1,1,1,1,1,1,1,1,
+  1,1,1,1,1,1,1,1,1,1,1,1,
+  1,0,0,0,0,0,0,0,0,0,0,1,
+  1,0,0,0,0,0,0,0,0,0,0,1,
+  1,0,0,0,0,0,0,0,0,0,0,1,
+  1,0,0,0,0,0,0,0,0,0,0,1,
+  1,0,0,0,0,0,0,0,0,0,0,1,
+  1,0,0,0,0,0,0,0,0,0,0,1,
+  1,0,0,0,0,0,0,0,0,0,0,1,
+  1,1,1,1,1,1,1,1,1,1,1,1,
 ]
 //var mapGrid = []
 const MAP_FLOOR = 0
 const MAP_WALL = 1
 //const MAP_PLAYERSTART = 2
 
-const MAP_W = 32
-const MAP_H = 32
-const MAP_COLS = 8
-const MAP_ROWS = 8
+const MAP_W = 64
+const MAP_H = 64
+const MAP_COLS = 12
+const MAP_ROWS = 9
 
 var mapHandler = {
   returnTitleTypeAtColRow: function (col, row) {

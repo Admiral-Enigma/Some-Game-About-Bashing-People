@@ -52,6 +52,7 @@ function Basher() {
   }
 
   this.draw = function () {
-    ctx.drawImage(this.img, this.x,this.y)
+
+    ctx.drawImage(this.img, this.x,this.y, this.img.width * 2,this.img.height *2)
   }
 }

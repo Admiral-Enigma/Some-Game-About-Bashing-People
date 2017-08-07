@@ -1,10 +1,10 @@
 var canvas, ctx
-var testTile = document.createElement('img')
+var playerTile = document.createElement('img')
 var player = new Basher()
 
 var assets = [
-  {variable: testTile, src: "placeHolderTile1.png"},
-  {tileType: MAP_FLOOR, src: "placeholderart2.png"},
+  {variable: playerTile, src: "placeHolderPlayer.png"},
+  {tileType: MAP_FLOOR, src: "placeHolderTile2.png"},
   {tileType: MAP_WALL, src: "placeHolderTile1.png"}
 ]
 
@@ -16,13 +16,14 @@ window.onload = function () {
   ctx.mozImageSmoothingEnabled = false
   ctx.imageSmoothingEnabled = false
 
+
   colorRect(0,0, canvas.width,canvas.height, 'black')
   colorText("Loading...", canvas.width/2,canvas.height/2, 'white')
 
   AssetLoader.loadImages(assets)
   Input.initInput()
 
-  player.init(testTile)
+  player.init(playerTile)
 
 }
 
