@@ -25,6 +25,13 @@ var camera = {
       }
     }
 
+
+  },
+
+  instantFollow: function (p) {
+    camera.camPanX = p.x + p.img.width - canvas.width/2;
+    camera.camPanY = p.y + p.img.height - canvas.height/2;
+
     if(camera.camPanX < 0) {
       camera.camPanX = 0;
     }
@@ -34,17 +41,12 @@ var camera = {
 
     var maxPanRight = MAP_COLS * MAP_W - canvas.width;
     var maxPanTop = MAP_ROWS * MAP_H - canvas.height;
-    if(camera.camPanX > maxPanRight) {
+    if(camera.camPanX > maxPanRight ) {
       camera.camPanX = maxPanRight;
     }
     if(camera.camPanY > maxPanTop) {
       camera.camPanY = maxPanTop;
     }
-  },
-
-  instantFollow: function (p) {
-    camera.camPanX = p.x + p.img.width/2 - canvas.width/2;
-    camera.camPanY = p.y + p.img.height/2 - canvas.height/2;
   }
 
 }
