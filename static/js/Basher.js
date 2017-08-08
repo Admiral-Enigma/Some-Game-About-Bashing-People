@@ -1,5 +1,7 @@
 const PLAYER_SPEED = 4
 const PLAYER_FRICTION = 0.60
+const PLAYER_DIST_FROM_CENTER_BEFORE_CAMERA_PAN_X = 10;
+const PLAYER_DIST_FROM_CENTER_BEFORE_CAMERA_PAN_Y = 5;
 
 function Basher() {
   this.x = 2

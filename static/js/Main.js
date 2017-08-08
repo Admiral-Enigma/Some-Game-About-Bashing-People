@@ -35,12 +35,19 @@ function startGame() {
 
 function update() {
   draw()
+  camera.instantFollow(player)
+
   player.move()
 }
 
 function draw() {
   colorRect(0,0, canvas.width,canvas.height, 'black')
-  mapHandler.draw()
   colorText(Input.mouseX,Input.mouseY, Math.floor(Input.mouseX)+":"+Math.floor(Input.mouseY), "yellow")
+
+  ctx.save()
+  ctx.translate(-camera.camPanX,-camera.camPanY)
+  mapHandler.draw()
   player.draw()
+
+  ctx.restore()
 }
