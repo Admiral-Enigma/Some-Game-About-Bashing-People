@@ -46,7 +46,7 @@ const MAP_ROWS = 20
 var mapHandler = {
   returnTitleTypeAtColRow: function (col, row) {
     if (col >= 0 && col < MAP_COLS && row >= 0 && row < MAP_ROWS) {
-      var mapIndexUnderCord = rowColToArrayIndex(col, row)
+      var mapIndexUnderCord = mapHandler.rowColToArrayIndex(col, row)
       return (mapGrid[mapIndexUnderCord])
     } else {
       return MAP_WALL
@@ -56,7 +56,7 @@ var mapHandler = {
   getTileAtPixelCoord: function (x, y) {
     var pixelMapCol = Math.floor(x / MAP_W)
     var pixelMapRow = Math.floor(y / MAP_H)
-    var mapIndex = rowColToArrayIndex(pixelMapCol, pixelMapRow)
+    var mapIndex = mapHandler.rowColToArrayIndex(pixelMapCol, pixelMapRow)
 
     if (pixelMapCol >= 0 && pixelMapCol < MAP_COLS && pixelMapRow >= 0 && pixelMapRow < MAP_ROWS) {
       return mapIndex
@@ -67,6 +67,11 @@ var mapHandler = {
 
   rowColToArrayIndex: function (col, row) {
     return col + MAP_COLS * row
+  },
+
+  isTileSoild: function (tile) {
+    return (tile == MAP_WALL ||
+            tile == MAP_ENEMY_SPAWN)
   },
 
   draw: function () {

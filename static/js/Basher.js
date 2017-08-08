@@ -4,8 +4,8 @@ const PLAYER_DIST_FROM_CENTER_BEFORE_CAMERA_PAN_X = 10;
 const PLAYER_DIST_FROM_CENTER_BEFORE_CAMERA_PAN_Y = 5;
 
 function Basher() {
-  this.x = 2
-  this.y = 2
+  this.x = 30
+  this.y = 30
   this.velX = 0
   this.velY = 0
 
@@ -33,10 +33,9 @@ function Basher() {
   }
 
   this.move = function () {
-    this.x += this.velX
-    this.y += this.velY
-    this.velX *= PLAYER_FRICTION
-    this.velY *= PLAYER_FRICTION
+
+    var nextX = 0
+    var nextY = 0
 
     if (this.goingUp) {
       this.velY = -PLAYER_SPEED
@@ -50,6 +49,29 @@ function Basher() {
     if (this.goingLeft) {
       this.velX = -PLAYER_SPEED
     }
+
+    nextX = this.x += this.velX
+    nextY = this.y += this.velY
+    var walkingIntoTileIndex = mapHandler.getTileAtPixelCoord(nextX, nextY)
+    var walkingIntoTileType = MAP_WALL
+    if (walkingIntoTileIndex != undefined) {
+      walkingIntoTileType = mapGrid[walkingIntoTileIndex]
+    }
+
+    switch (walkingIntoTileType) {
+      case MAP_FLOOR:
+        this.x = nextX
+        this.y = nextY
+        this.velX *= PLAYER_FRICTION
+        this.velY *= PLAYER_FRICTION
+        break;
+      case mapHandler.isTileSoild(walkingIntoTileType):
+        console.log('SOLID');
+        this.velX = 0
+        this.velY = 0
+        break;
+    }
+
 
   }
 
