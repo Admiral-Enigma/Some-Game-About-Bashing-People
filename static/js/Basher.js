@@ -84,7 +84,6 @@ function Basher() {
           this.x = this.nextX
           this.y = this.nextY
           break;
-
       }
       //Faces = 3
       /*
@@ -130,7 +129,6 @@ function Basher() {
   }*/
 
   this.draw = function () {
-    //ctx.drawImage(this.img, this.x,this.y, this.img.width*PLAYER_SCALE,this.img.height*PLAYER_SCALE)
     drawBitMapCenteredWithScale(this.img, this.x, this.y, PLAYER_SCALE)
   }
 }

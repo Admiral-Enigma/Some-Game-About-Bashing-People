@@ -9,7 +9,6 @@ var camera = {
     var playerDistFromCameraFocusX = Math.abs(p.x-cameraFocusCenterX);
     var playerDistFromCameraFocusY = Math.abs(p.y-cameraFocusCenterY);
 
-
     if(playerDistFromCameraFocusX > PLAYER_DIST_FROM_CENTER_BEFORE_CAMERA_PAN_X) {
       if(cameraFocusCenterX < p.x)  {
         camera.camPanX += camera.moveSpeed;
@@ -24,8 +23,6 @@ var camera = {
         camera.camPanY -= camera.moveSpeed;
       }
     }
-
-
   },
 
   instantFollow: function (p) {
