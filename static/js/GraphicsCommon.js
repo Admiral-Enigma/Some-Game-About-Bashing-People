@@ -7,6 +7,14 @@ function drawBitmapWithAng(bitmap, x, y, ang) {
   ctx.restore()
 }
 
+function drawBitMapCenteredWithScale(bitmap, x, y, scale) {
+  ctx.save()
+  ctx.translate(x, y)
+  ctx.scale(scale, scale)
+  ctx.drawImage(bitmap, -bitmap.width / 2, -bitmap.height / 2)
+  ctx.restore()
+}
+
 function colorRect(x, y, w, h, color) {
   ctx.fillStyle = color
   ctx.fillRect(x, y, w, h)

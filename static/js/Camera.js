@@ -29,8 +29,8 @@ var camera = {
   },
 
   instantFollow: function (p) {
-    camera.camPanX = p.x + p.img.width - canvas.width/2;
-    camera.camPanY = p.y + p.img.height - canvas.height/2;
+    camera.camPanX = p.x - canvas.width/2;
+    camera.camPanY = p.y - canvas.height/2;
 
     if(camera.camPanX < 0) {
       camera.camPanX = 0;
