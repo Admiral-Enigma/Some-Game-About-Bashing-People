@@ -50,7 +50,7 @@ function Basher() {
       nextX -= PLAYER_SPEED
     }
 
-    var walkingIntoTileIndex = mapHandler.getTileAtPixelCoord(nextX, nextY)
+    var walkingIntoTileIndex = mapHandler.getTileAtPixelCoord(nextX*2, nextY*2)
     var walkingIntoTileType = MAP_WALL
     if (walkingIntoTileIndex != undefined) {
       walkingIntoTileType = mapGrid[walkingIntoTileIndex]
@@ -71,6 +71,6 @@ function Basher() {
 
   this.draw = function () {
 
-    ctx.drawImage(this.img, this.x,this.y, this.img.width * 2,this.img.height *2)
+    ctx.drawImage(this.img, this.x,this.y, this.img.width*2,this.img.height*2)
   }
 }
