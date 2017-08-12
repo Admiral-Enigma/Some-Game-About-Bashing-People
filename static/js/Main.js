@@ -1,9 +1,13 @@
 var canvas, ctx
 var playerTile = document.createElement('img')
+var bulletImg = document.createElement('img')
+
 var player = new Basher()
+var bulletManager = new BulletManager
 
 var assets = [
   {variable: playerTile, src: "placeHolderPlayer.png"},
+  {variable: bulletImg, src: "bulletImg.png"},
   {tileType: MAP_FLOOR, src: "placeHolderTile2.png"},
   {tileType: MAP_WALL, src: "placeHolderTile1.png"},
   {tileType: MAP_ENEMY_SPAWN, src: "placeHolderTile3.png"}
@@ -25,6 +29,7 @@ window.onload = function () {
 
   AssetLoader.loadImages(assets)
   Input.initInput()
+  bulletManager.init(bulletImg)
 
   player.init(playerTile)
 
@@ -40,6 +45,8 @@ function update() {
   draw()
   camera.instantFollow(player)
 
+  bulletManager.updateBullets()
+
   player.move()
 }
 
@@ -51,6 +58,7 @@ function draw() {
   ctx.translate(-camera.camPanX,-camera.camPanY)
   mapHandler.draw()
   player.draw()
+  bulletManager.drawBullets()
 
   ctx.restore()
 }
