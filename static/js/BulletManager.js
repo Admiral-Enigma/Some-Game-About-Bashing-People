@@ -6,6 +6,7 @@ function BulletManager() {
     this.bulletImage = img
   }
   this.createBullet = function (x, y, speed, ang) {
+    console.log('I MAKE BULLET');
     var tempBullet = new Bullet(x, y, speed, ang)
     this.bullets.push(tempBullet)
   }

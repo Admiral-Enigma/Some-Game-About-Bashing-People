@@ -1,5 +1,6 @@
 const PLAYER_SPEED = 6.5
 const PLAYER_SCALE = 1
+const PLAYER_SHOOT_DELAY = 22
 
 function Basher() {
   this.x = 300
@@ -8,6 +9,9 @@ function Basher() {
   this.nextY = 0
   this.velX = 0
   this.velY = 0
+  this.shootTimer = 0
+  // 0 Top 1 Right 2 Bottom 3 left
+  this.dir = 0
 
   this.img
 
@@ -20,16 +24,18 @@ function Basher() {
   this.goingRightKey
   this.goingDownKey
   this.goingLeftKey
+  this.shootKey
 
   this.init = function (img) {
     this.img = img
   }
 
-  this.setupInput = function (upKey, downKey, rightKey, leftKey) {
+  this.setupInput = function (upKey, downKey, rightKey, leftKey, shootKey) {
     this.goingUpKey = upKey
     this.goingRightKey = rightKey
     this.goingDownKey = downKey
     this.goingLeftKey = leftKey
+    this.shootKey = shootKey
   }
 
   this.getBundingBox = function (face) {
@@ -57,19 +63,55 @@ function Basher() {
 
     if (this.goingUp) {
       this.nextY -= PLAYER_SPEED
+      this.dir = 0
     }
     if (this.goingRight) {
       this.nextX += PLAYER_SPEED
+      this.dir = 1
     }
     if (this.goingDown) {
       this.nextY += PLAYER_SPEED
+      this.dir = 2
     }
     if (this.goingLeft) {
       this.nextX -= PLAYER_SPEED
+      this.dir = 3
     }
 
     this.handleCollision()
+    if (this.shootTimer > 0) {
+      this.shootTimer--
+    }
+  }
 
+    this.shoot = function () {
+      if (this.shootTimer == 0) {
+        switch (this.dir) {
+          case 0:
+            var angle = Math.radians(-90)
+            bulletManager.createBullet(this.x, this.y, 33, angle)
+            this.shootTimer = PLAYER_SHOOT_DELAY
+            break;
+          case 1:
+            var angle = Math.radians(0)
+            bulletManager.createBullet(this.x, this.y, 33, angle)
+            this.shootTimer = PLAYER_SHOOT_DELAY
+            break;
+          case 2:
+            var angle = Math.radians(90)
+            bulletManager.createBullet(this.x, this.y, 33, angle)
+            this.shootTimer = PLAYER_SHOOT_DELAY
+            break;
+          case 3:
+            var angle = Math.radians(180)
+            bulletManager.createBullet(this.x, this.y, 33, angle)
+            this.shootTimer = PLAYER_SHOOT_DELAY
+            break;
+          default:
+
+        }
+
+      }
     }
 
     this.handleCollision = function () {

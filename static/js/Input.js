@@ -1,7 +1,8 @@
-const KEY_W = 87;
-const KEY_A = 65;
-const KEY_S = 83;
-const KEY_D = 68;
+const KEY_W = 87
+const KEY_A = 65
+const KEY_S = 83
+const KEY_D = 68
+const KEY_Z = 90
 
 var Input = {
 
@@ -14,7 +15,7 @@ var Input = {
     document.addEventListener('keydown', Input.keyDown)
     document.addEventListener('keyup', Input.keyUp)
 
-    player.setupInput(KEY_W, KEY_S, KEY_D, KEY_A)
+    player.setupInput(KEY_W, KEY_S, KEY_D, KEY_A, KEY_Z)
   },
 
   updateMousePos: function (evt) {
@@ -42,6 +43,10 @@ var Input = {
 
   keyDown: function (evt) {
     Input.playerKeyEvents(evt, true)
+    if (evt.keyCode == player.shootKey) {
+      player.shoot()
+      console.log('SHOOT');
+    }
   },
 
   keyUp: function (evt) {
