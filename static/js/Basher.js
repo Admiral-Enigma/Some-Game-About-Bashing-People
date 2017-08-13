@@ -108,7 +108,6 @@ function Basher() {
             this.shootTimer = PLAYER_SHOOT_DELAY
             break;
           default:
-
         }
 
       }
